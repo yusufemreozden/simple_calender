@@ -46,7 +46,6 @@ int main()
 {
     int day, month, year, day2, month2, year2;
     printf("Enter a date (0 0 0 to quit): ");
-
     if (scanf("%d %d %d", &day, &month, &year) != 3) 
         printf("This is not valid date!\n");
     
@@ -73,9 +72,21 @@ int main()
         {
             printf("The next day of 0%d.%d.%d is 0%d.%d.%d",day,month,year,day2,month2,year2);
         }
-        else if(day>9 && month2<=9 && month==month2 && day2==1)
+        else if(day>9 && month2<=9 && month==month2)
         {
             printf("The next day of %d.0%d.%d is %d.0%d.%d",day,month,year,day2,month2,year2);
+        }
+        else if(day>9 && month>9 && month2<=9)
+        {
+            printf("The next day of %d.%d.%d is 0%d.0%d.%d",day,month,year,day2,month2,year2);
+        }
+           else if(day>9 && month>9 && month2>=10 && month2<=12 && day2>9)
+        {
+            printf("The next day of %d.%d.%d is %d.%d.%d",day,month,year,day2,month2,year2);
+        }
+        else if(day>9 && month>9 && month2>=10 && month2<=12 && day2<=9)
+        {
+             printf("The next day of %d.%d.%d is 0%d.%d.%d",day,month,year,day2,month2,year2);
         }
         else if(month<month2 && month<=9)
             printf("The next day of %d.0%d.%d is 0%d.0%d.%d",day,month,year,day2,month2,year2);
