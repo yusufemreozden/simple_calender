@@ -13,7 +13,7 @@
 
 #include <stdio.h>
 
-int Day_Calculator(int day, int month, int year)
+int Day_Calculator(int day, int month, int year) //it'll calculate what day will happen.
 {
     if((month != 2 && day<=29) || (month==2 && day==28 && year%4==0) || (month!=2 && month <= 12 && day<=28))
         day+=1;
@@ -24,7 +24,7 @@ int Day_Calculator(int day, int month, int year)
     return(day);
 }
 
-int Month_Calculator(int day, int month, int year)
+int Month_Calculator(int day, int month, int year) //it'll calculate that the number of month will increase or won't.
 {
     if(day==31 && month==12)
         month=1;    
@@ -37,7 +37,7 @@ int Month_Calculator(int day, int month, int year)
     return(month);
 }
 
-int YearCalculator(int day, int month, int year)
+int Year_Calculator(int day, int month, int year) //in this function, if the given day is last day of the given year, year will be changed.
 {
     if(day==31 && month==12)
         year+=1;
@@ -48,8 +48,12 @@ int main()
 {
     int day, month, year, day2, month2, year2;
     printf("Enter a date (0 0 0 to quit): ");
-    scanf("%d %d %d",&day,&month,&year);
 
+    if (scanf("%d %d %d", &day, &month, &year) != 3) 
+    {
+        printf("This is not valid date!\n");
+        return 1;
+    }
     if(day==0 && month==0 && year==0)
         printf("Thanks for using our calendar!\n");
 
@@ -57,11 +61,11 @@ int main()
         printf("This is not valid date!\n");
     else if ((month==2 && day>=30 && year%4!=0) || (month==2 && day>=29 && year%4!=0))
         printf("This is not valid date!\n");
-    else
+    else //if the taken date isn't invalid, program will be started here.
     {
         day2 = Day_Calculator(day,month,year);
         month2 = Month_Calculator(day,month,year);
-        year2 = YearCalculator(day,month,year);
+        year2 = Year_Calculator(day,month,year);
 
         printf("The next day of %d.%d.%d is %d.%d.%d",day,month,year,day2,month2,year2);
     }
