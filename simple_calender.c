@@ -15,7 +15,7 @@
 
 int Day_Calculator(int day, int month, int year)
 {
-    if((month != 2 && day<=29) || (month==2 && day==28 && year%4==0) || (month <= 12 && day<=28))
+    if((month != 2 && day<=29) || (month==2 && day==28 && year%4==0) || (month!=2 && month <= 12 && day<=28))
         day+=1;
     else if((month==2 && year%4==0 && day==29) || (month==2 && year%4!=0 && day==28))
         day=1;
