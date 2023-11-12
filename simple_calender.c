@@ -65,18 +65,20 @@ int main()
         month2 = month_calculator(day,month,year);
         year2 = year_calculator(day,month,year);
 
-        if(day2<=9 && month2<=9)
+        if(day2<=9 && month2<=9 && month==month2)
         {
            printf("The next day of 0%d.0%d.%d is 0%d.0%d.%d",day,month,year,day2,month2,year2);
         }
-        else if(day2<=9 && month>9)
+        else if(day2<=9 && month>9 && month==month2)
         {
             printf("The next day of 0%d.%d.%d is 0%d.%d.%d",day,month,year,day2,month2,year2);
         }
-        else if(day>9 && month2<=9)
+        else if(day>9 && month2<=9 && month==month2 && day2==1)
         {
             printf("The next day of %d.0%d.%d is %d.0%d.%d",day,month,year,day2,month2,year2);
         }
+        else if(month<month2 && month<=9)
+            printf("The next day of %d.0%d.%d is 0%d.0%d.%d",day,month,year,day2,month2,year2);
     }
 }
 
